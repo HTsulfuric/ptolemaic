@@ -54,15 +54,16 @@ function draw() {
 
   let orb3Trajectory = [];
 
-  // orb3の幅を求める。 正であることを確認
-  let orb3width = orb1.rad + orb2.rad;
+  // orb3の最大幅を求める。
+  let orb3width = orb1.rad + orb2.rad + 10;
 
-  let shortSide = Math.max(ptole_cvs.width, ptole_cvs.height);
+  let shortSide = Math.min(ptole_cvs.width, ptole_cvs.height) / 2;
 
   const rad1Slider = document.getElementById('rad1Slider');
   const rad1Value = document.getElementById('rad1Value');
   rad1Slider.addEventListener('input', function () {
     orb1.rad = parseInt(rad1Slider.value);
+    orb3width = orb1.rad + orb2.rad + 10;
     rad1Value.textContent = orb1.rad;
     angleRad = 0;
     orb3Trajectory = [];
@@ -72,6 +73,7 @@ function draw() {
   const rad2Value = document.getElementById('rad2Value');
   rad2Slider.addEventListener('input', function () {
     orb2.rad = parseInt(rad2Slider.value);
+    orb3width = orb1.rad + orb2.rad + 10;
     rad2Value.textContent = orb2.rad;
     angleRad = 0;
     orb3Trajectory = [];
@@ -101,10 +103,6 @@ function draw() {
     // 描画内容を消去する。
     helio_context.clearRect(0, 0, helio_cvs.width, helio_cvs.height);
     ptole_context.clearRect(0, 0, ptole_cvs.width, ptole_cvs.height);
-
-    // longSide, orb3widthを更新する。
-    shortSide = Math.min(ptole_cvs.width, ptole_cvs.height) / 2;
-    orb3width = orb1.rad + orb2.rad + 10;
 
     // angleRadを1度ずつ変化させていく。
     // 1度はMath.PI/180ラジアン。
