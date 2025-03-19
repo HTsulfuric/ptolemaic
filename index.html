@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" src="./js/circle.js"></script>
+  </head>
+  <body>
+    <h1>惑星運行シミュレーション</h1>
+    <div class="canvas-container">
+      <canvas id="helio" width="640" height="480"></canvas>
+      <canvas id="ptole" width="640" height="480"></canvas>
+    </div>
+    <div>
+      <label for="rad1Slider">Radius 1:</label>
+      <input type="range" id="rad1Slider" min="50" max="200" value="100" />
+      <span id="rad1Value">100</span>
+    </div>
+    <div>
+      <label for="rad2Slider">Radius 2:</label>
+      <input type="range" id="rad2Slider" min="50" max="200" value="150" />
+      <span id="rad2Value">150</span>
+    </div>
+    <div>
+      <label for="v1Slider">Velocity 1:</label>
+      <input type="range" id="v1Slider" min="0" max="10" value="3" />
+      <span id="v1Value">3</span>
+    </div>
+    <div>
+      <label for="v2Slider">Velocity 2:</label>
+      <input type="range" id="v2Slider" min="0" max="10" value="5" />
+      <span id="v2Value">5</span>
+    </div>
+  </body>
+</html>
