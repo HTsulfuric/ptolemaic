@@ -138,6 +138,11 @@ function draw() {
     helio_context.arc(helio_center.x, helio_center.y, orb2.rad, 0, Math.PI * 2);
     helio_context.stroke();
 
+    //中心に太陽の絵文字を描画する。
+    //
+    helio_context.fillText('☀️', helio_center.x, helio_center.y);
+
+
     //orb3の軌道を描画する。
     ptole_context.beginPath();
     for (let i = 0; i < orb3Trajectory.length - 1; i++) {

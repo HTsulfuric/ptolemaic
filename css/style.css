@@ -13,8 +13,24 @@ h1 {
 
 .canvas-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.canvas-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.canvas-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 canvas {
@@ -31,6 +47,26 @@ div {
 label {
   font-weight: bold;
   margin-right: 10px;
+  min-width: 80px;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.slider-container div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 input[type="range"] {
