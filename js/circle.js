@@ -27,7 +27,7 @@ function draw() {
   };
 
   // 表示する円のサイズ。
-  const circleSize = 10;
+  const circleSize = 13;
 
   // 変化させていくパラメータ。
   // angleRadを増加させていき、
@@ -122,20 +122,14 @@ function draw() {
     }
     orb3Trajectory.push({ x: orb3.x, y: orb3.y });
 
-    // 求めた座標に円を描画する。
-    helio_context.beginPath();
-    helio_context.arc(orb1.x, orb1.y, circleSize, 0, Math.PI * 2);
-    helio_context.fill();
+    //text設定
 
-    helio_context.beginPath();
-    helio_context.arc(orb2.x, orb2.y, circleSize, 0, Math.PI * 2);
-    helio_context.fill();
-
-    ptole_context.beginPath();
-    ptole_context.arc(orb3.x, orb3.y, circleSize, 0, Math.PI * 2);
-    ptole_context.fill();
+    helio_context.font = '20px serif';
+    helio_context.textBaseline = 'middle';
+    helio_context.textAlign = 'center';
 
     // 円の軌道を描画する。
+    helio_context.fillStyle = 'black';
     helio_context.beginPath();
     helio_context.arc(helio_center.x, helio_center.y, orb1.rad, 0, Math.PI * 2);
     helio_context.stroke();
@@ -143,10 +137,6 @@ function draw() {
     helio_context.beginPath();
     helio_context.arc(helio_center.x, helio_center.y, orb2.rad, 0, Math.PI * 2);
     helio_context.stroke();
-
-    //canvasの外枠を描画する。
-    helio_context.strokeRect(0, 0, helio_cvs.width, helio_cvs.height);
-    ptole_context.strokeRect(0, 0, ptole_cvs.width, ptole_cvs.height);
 
     //orb3の軌道を描画する。
     ptole_context.beginPath();
@@ -157,7 +147,45 @@ function draw() {
     ptole_context.strokeStyle = 'blue';
     ptole_context.stroke();
 
+
+    // 求めた座標に円を描画する。
+    helio_context.fillStyle = 'red';
+    helio_context.beginPath();
+    helio_context.arc(orb1.x, orb1.y, circleSize, 0, Math.PI * 2);
+    helio_context.fill();
+
+    helio_context.fillStyle = 'white';
+    helio_context.fillText('1', orb1.x, orb1.y);
+
+    helio_context.fillStyle = 'brown';
+    helio_context.beginPath();
+    helio_context.arc(orb2.x, orb2.y, circleSize, 0, Math.PI * 2);
+    helio_context.fill();
+
+    helio_context.fillStyle = 'white';
+    helio_context.fillText('2', orb2.x, orb2.y);
+
+
+    ptole_context.font = '20px serif';
+    ptole_context.textBaseline = 'middle';
+    ptole_context.textAlign = 'center';
+
+    ptole_context.fillStyle = 'brown';
+    ptole_context.beginPath();
+    ptole_context.arc(orb3.x, orb3.y, circleSize, 0, Math.PI * 2);
+    ptole_context.fill();
+
+    ptole_context.fillStyle = 'white';
+    ptole_context.fillText('2', orb3.x, orb3.y);
+
+
+    //canvasの外枠を描画する。
+    helio_context.strokeStyle = 'black';
     ptole_context.strokeStyle = 'black';
+
+    helio_context.strokeRect(0, 0, helio_cvs.width, helio_cvs.height);
+    ptole_context.strokeRect(0, 0, ptole_cvs.width, ptole_cvs.height);
+
 
 
     window.requestAnimationFrame(loop);
